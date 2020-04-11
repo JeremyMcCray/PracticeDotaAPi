@@ -19,7 +19,6 @@ import java.util.Optional;
 @RestController
 public class PlayerWinLossController {
 
-  String url ="https://api.opendota.com/api/matches/271145478?api_key=695fec48-5c98-4981-bf7a-2c92b125f9e3";
 
     private static PlayerWinLossServices serv;
 
@@ -32,17 +31,11 @@ public class PlayerWinLossController {
 
 
     @GetMapping("/getWL/{id}")
-    public ResponseEntity<PlayerWinLoss> getWinLoss(Long id ){
+    public ResponseEntity<PlayerWinLoss> getWinLoss(@PathVariable Long id ){
 
       return new ResponseEntity<>(serv.findById(id) , HttpStatus.OK);
     }
 
 
 
-
-
-//    @GetMapping("https://api.opendota.com/api/players/{account_id}/wl")
-//    public PlayerWinLoss getWinLoss(@PathVariable int account_id){
-//        return null;
-//    }
 }
